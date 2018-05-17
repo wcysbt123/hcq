@@ -1,14 +1,13 @@
 *{
 			    margin: 0;
 			    padding: 0;
-			    font-family: "Microsoft YaHei" "微软雅黑" "黑体" "HeitiSC";
+			    font-family: "Microsoft YaHei","微软雅黑","黑体","HeitiSC","STHeiti";
 		    }
 		    body{
 		    	    background-image: url(../img/bg/1.jpg);
 		    	    background-size: cover;
 		    	    background-attachment: fixed;
 		    	    height: 100%;
-		    	    font-family: "Microsoft YaHei" "微软雅黑" "黑体" "HeitiSC";
 		    }
 		    ::-webkit-scrollbar {
 		    	    display:none;
