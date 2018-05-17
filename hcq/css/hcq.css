@@ -1,0 +1,338 @@
+*{
+			    margin: 0;
+			    padding: 0;
+			    font-family: "Microsoft YaHei" "微软雅黑" "黑体" "HeitiSC";
+		    }
+		    body{
+		    	    background-image: url(../img/bg/1.jpg);
+		    	    background-size: cover;
+		    	    background-attachment: fixed;
+		    	    height: 100%;
+		    	    font-family: "Microsoft YaHei" "微软雅黑" "黑体" "HeitiSC";
+		    }
+		    ::-webkit-scrollbar {
+		    	    display:none;
+		  	}
+		    #map{
+		    	    text-align: center;
+		    	    width: 100%;
+		    	    height: 100%;
+		    }
+		    #map img{
+		    	    width: 1200px;
+		    	    margin: 0;
+		    	    margin-top: 40px;
+		    }
+		    #header{
+		    	    width: 100%;
+		    	    height: 150px;
+		    	    position: absolute;
+		    	    top: 0;
+		    	    left: 0;
+		    	    display: flex;
+		    	    justify-content: space-between;
+		    	    align-items: center;
+		    }
+		    #search{
+		    	    width: 280px;
+		    	    height: 36px;
+		    	    background-color: #fff;
+		    	    margin-left: 50px;
+		    	    border: 3px solid #181818;
+		    	    color: #BBBBBB;
+		    }
+		    #search input{
+		    	    height: 36px;
+		    	    width: 200px;
+		    	    margin-left: 15px;
+		    	    border: none;
+		    	    font-size: 14px;
+		    }
+		    #search input:focus{
+		        outline: none;
+		    }
+		    #search input::-webkit-input-placeholder { 
+                color: #BBBBBB; 
+                -webkit-transition: color.3s; 
+            } 
+            #search input:focus::-webkit-input-placeholder{ 
+                color: #FFFFFF; 
+                -webkit-transition: color.3s; 
+            } 
+		    #search img{
+		    	    height: 20px;
+		    	    float: right;
+		    	    margin: 8px 10px;
+		    }
+		    	#search img:hover{
+		    		cursor: pointer;
+		    	}
+		    #rt{
+		    	    width: 260px;
+		    	    height: 100%;
+		    	    margin-right: 50px;
+		    }
+		    #nianbiao{
+		    	    background-color: #F69C41;
+		    	    width: 64px;
+		    	    height: 30px;
+		    	    margin: 60px 0 60px 50px;
+		    	    border-radius: 25px;
+		    	    color: #fff;
+		    	    font-size: 16px;
+		    	    text-align: center;
+		    	    line-height: 30px;
+		    	    float: left;
+		    	    letter-spacing: 0.3px;
+		    }
+		    	#nianbiao:hover{
+		    		cursor: pointer;
+		    	}
+		    #time{
+		    	    width: 130px;
+		    	    height: 68px;
+		    	    margin: 41px 0;
+		    	    font-size: 16px;
+		    	    float: right;
+		    	    line-height: 30px;
+		    	    text-align: right;
+		    	    display: flex;
+		    	    align-items: center;
+		    }
+		    #time img:hover{
+		    		cursor: pointer;
+		    	}
+		    .tm{
+		    	    float: right;
+		    }
+		    #year{
+		    	    float: right;
+		    	    font-size: 24px;
+		    	    line-height: 30px;
+		    	    width: 56px;
+		    	    text-align: center;
+		    	    display: flex;
+		    	    flex-direction: column;
+		    	    align-items: center;
+		    }
+		    #year img{
+		    	    height: 5px;
+		    	    margin: 6px 0;
+		    }
+		    #ruler{
+		    	    position: absolute;
+		    	    bottom: 30px;
+		    	    left: 50px;
+		    	    width: 100px;
+		    	    height: 40px;
+		    	    text-align: center;
+		    	    font-weight: 350;
+		    	    line-height: 30px;
+		    }
+		    #rl{
+		    	    box-sizing: border-box;
+		    	    position: relative;
+		    	    top: 0;
+		    	    margin: 0;
+		    	    width: 100%;
+		    	    height: 10px;
+		    	    border: 2px solid #181818;
+		    	    border-top: 0;
+		    }
+		    #size{
+		    	    position: absolute;
+		    	    right: 50px;
+		    	    bottom: 80px;
+		    	    height: 70px;
+		    	    width: 35px;
+		    	    border: 1.5px solid #bbb;
+		    	    background-color: #fff;
+		    	    margin: 0;
+		    }
+		    #size div{
+		    	    height: 35px;
+		    	    width: 35px;
+		    	    margin: 0;
+		    	    
+		    }
+		    #size img{
+		    	    height: 17px;
+		    	    margin: 9px;
+		    }
+		    	#size img:hover{
+		    		cursor: pointer;
+		    	}
+		    #gain{
+		      	box-sizing: border-box;
+		    	    border-bottom: 0.5px solid #bbb;
+		    }
+		    
+		    	    
+		    #bai{
+		    	    width: 100%;
+		    	    background-color: #FFFFFF;
+		    	    position: absolute;
+		    	    top: 0;
+		    	    left: 0;
+		    	    margin: 0;
+		    	    opacity: 0.5;
+		    	    display: none;
+		    }
+		    #list{
+		    	    position: absolute;
+		    	    margin: 0;
+		    	    left: -320px;
+		    	    top: 0;
+		    	    width: 300px;
+		    	    height: 100%;
+		    	    background-color: #8C653E;
+		    	    box-shadow: 2px 0 30px #8C653E;
+		    }
+		    #title{
+		    	    height: 24px;
+		    	    width: 100%;
+		    	    margin-top: 60px;
+		    	    display: flex;
+		    	    justify-content: flex-end;
+		    	    font-size: 22px;
+		    	    line-height: 24px;
+		    	    color: #fff;
+		    	    font-weight: 400;
+		    }
+		    #title div{
+		    	    height: 100%;
+		    	    width: 25px;
+		    	    background-color: #F69C41;
+		    	    margin-left: 10px;
+		    }
+		    #list_main{
+		    	    width: 220px;
+		    	    height: 100%;
+		    	    margin: 80px 40px 0 40px;
+		    	    overflow: scroll;
+		    }
+		    
+		    #list_main > div{
+		    	    display: flex;
+		    	    justify-content: flex-start;
+		    	    flex-wrap: wrap;
+		    	    margin-top: 5px;
+		    	    margin-bottom: -5px;
+		    }
+		    .list_line{
+		    	    height: 100%;
+		    	    width: 20px;
+		    	    margin: 0;
+		    }
+		    .circle{
+		    	    width: 20px;
+		    	    height: 20px;
+		    	    background-color: #F69C41;
+		    	    border-radius: 100%;
+		    }
+		    .line{
+		    	    height: 100px;
+		    	    width: 9px;
+		    	    border-right: 2px solid #FFDDC2;
+		    }
+		    .list_words{
+		       	margin-left: 10px;
+		    }
+		    .list_title{
+		        font-weight: lighter;
+		        font-size: 15px;
+		        color: #FFDDB0;
+		        width: 130px;
+		        margin-top: -7px;
+		    }
+		    .list_title span{
+		    	    font-size: 20px;
+		    }
+		    .list_content{
+		    	    font-size: 12px;
+		    	    color: #fff;
+		    	    font-weight: lighter;
+		    	    margin-top: 6px;
+		    }
+		    #mode_button{
+		    	    height: 39px;
+		    	    width: 39px;
+		    	    color: #FFFFFF;
+		    	    background-color: #F69C41;
+		    	    font-size: 12px;
+		    	    position: absolute;
+		    	    right: 50px;
+		    	    bottom: 30px;
+		    	    text-align: center;
+		    	    border-radius: 10px;
+		    	    line-height: 14px;
+		    	    padding: 5.5px 0;
+		    	    box-sizing: border-box;
+		    	}
+		    	#mode_button:hover{
+		    		cursor: pointer;
+		    	}
+		    #mode_list{
+		    	    display: none;
+		    	    justify-content: center;
+		    	    position: absolute;
+		    	    width: 360px;
+		    	    height: 84px;
+		    	    right: 50px;
+		    	    bottom: 30px;
+		    	    background-color: #F69C41;
+		    	    border-radius: 2px;
+		    	    align-items: center;
+		    }
+		    #mode_list > div{
+		    	    width: 104px;
+		    	    height: 64px;
+		    	    background-size: 100% 100%;
+		    	    margin: 0 6px;
+		    	    color: #FFFFFF;
+		    	    text-align: center;
+		    	    text-shadow: 0 0 4px #8C653E;
+		    	    display: flex;
+		    	    justify-content: center;
+		    	    align-items: center;
+		    	    box-sizing: border-box;
+		    }
+		    .select{
+		    	    width: 50px;
+		    	    height: 18px;
+		    	    border-radius: 10px;
+		    	    margin: 19px 0;
+		    }
+
+		    .select img{
+		    	    height: 14px;
+		    	    margin: 2px 2px;
+		    	    float: left;
+		    	    display: none;
+		    }
+		    .select p{
+		    	    line-height: 18px;
+		    	    color: #FFFFFF;
+		    	    font-size: 10px;
+		    	    float: left;
+		    	    width: 100%;
+		    	    text-align: center;
+		    }
+		    #mode_city{
+		    	    background-image: url(../img/mode-1.jpg);
+		    	    box-sizing: border-box;
+		    	    border: 4px solid #FFFFFF;
+		    }
+		    #mode_city .select img{
+		    	    display: block;
+		    }
+		    #mode_city .select p{
+		    	    width: 28px;
+		    }
+		    #mode_junshi{
+		    	    background-image: url(../img/mode-1.jpg);
+		    }
+		    
+		    #mode_waijiao{
+		    	    background-image: url(../img/mode-1.jpg);
+		    }
