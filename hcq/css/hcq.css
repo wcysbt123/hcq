@@ -1,13 +1,14 @@
 *{
 			    margin: 0;
 			    padding: 0;
-			    font-family: "Microsoft YaHei","微软雅黑","黑体","HeitiSC","STHeiti";!important;
+			    
 		    }
 		    body{
 		    	    background-image: url(../img/bg/1.jpg);
 		    	    background-size: cover;
 		    	    background-attachment: fixed;
 		    	    height: 100%;
+		    	    font-family: "黑体","HeitiSC";!important;
 		    }
 		    ::-webkit-scrollbar {
 		    	    display:none;
@@ -196,7 +197,6 @@
 		    	    font-size: 22px;
 		    	    line-height: 24px;
 		    	    color: #fff;
-		    	    font-weight: 400;
 		    }
 		    #title div{
 		    	    height: 100%;
@@ -238,7 +238,7 @@
 		       	margin-left: 10px;
 		    }
 		    .list_title{
-		        font-weight: lighter;
+		        font-weight: 400;
 		        font-size: 15px;
 		        color: #FFDDB0;
 		        width: 130px;
@@ -250,7 +250,7 @@
 		    .list_content{
 		    	    font-size: 12px;
 		    	    color: #fff;
-		    	    font-weight: lighter;
+		    	    font-weight: 300;
 		    	    margin-top: 6px;
 		    }
 		    #mode_button{
@@ -312,7 +312,8 @@
 		    .select p{
 		    	    line-height: 18px;
 		    	    color: #FFFFFF;
-		    	    font-size: 10px;
+		    	    font-size: 12px;
+		    	    font-weight: 600;
 		    	    float: left;
 		    	    width: 100%;
 		    	    text-align: center;
