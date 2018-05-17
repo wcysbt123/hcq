@@ -1,7 +1,7 @@
 *{
 			    margin: 0;
 			    padding: 0;
-			    font-family: "Microsoft YaHei","微软雅黑","黑体","HeitiSC","STHeiti";
+			    font-family: "Microsoft YaHei","微软雅黑","黑体","HeitiSC","STHeiti";!important;
 		    }
 		    body{
 		    	    background-image: url(../img/bg/1.jpg);
