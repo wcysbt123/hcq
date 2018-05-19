@@ -1,7 +1,10 @@
 *{
 			    margin: 0;
 			    padding: 0;
-			    
+			    -webkit-user-select:none;
+                -moz-user-select:none;
+                -ms-user-select:none;
+                user-select:none;
 		    }
 		    body{
 		    	    background-image: url(../img/bg/1.jpg);
@@ -64,9 +67,6 @@
 		    	    float: right;
 		    	    margin: 8px 10px;
 		    }
-		    	#search img:hover{
-		    		cursor: pointer;
-		    	}
 		    #rt{
 		    	    width: 260px;
 		    	    height: 100%;
@@ -118,6 +118,19 @@
 		    #year img{
 		    	    height: 5px;
 		    	    margin: 6px 0;
+		    	    opacity: 1;
+		    }
+		    #year p{
+		    	    cursor: pointer;
+		    }
+		    #year input{
+		    	    width: 43px;
+		    	    height: 20px;
+		    	    outline: none;
+		    	    font-size: 24px;
+		    	    background-color: transparent;
+		    	    border: 0;
+		    	    text-align: center;
 		    }
 		    #ruler{
 		    	    position: absolute;
