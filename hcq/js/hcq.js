@@ -1,22 +1,23 @@
 $(document).ready(function(){
     var list = document.getElementById('list');
-	var h = list.offsetHeight;
+	var h = list.clientHeight;
 	var list_main = document.getElementById('list_main');
 	list_main.style.height = h - 164 + 'px' ;
 	var mode_list = document.getElementById('mode_list');
     var handle;
 			
 	var bai = document.getElementById('bai');
-	var map_img = document.getElementById('map_imp');
+	var map_img = document.getElementById('map_img');
 	bai.style.height = h + 'px';
 	
 	var year_content = document.getElementById('year_content');
 	var year_gain = document.getElementById('year_gain');
 	var year_reduce = document.getElementById('year_reduce');
 	var year = Number(year_content.textContent);
+
+	var map = document.getElementById('map');
 	
 	hideIcon();
-	
 	year_gain.onclick = function(){
 		if(year < 256){
 			year++;
@@ -97,7 +98,7 @@ $(document).ready(function(){
 			changeMap(yearInputValue);
 			hideIcon();
 			year_content.innerHTML = parseInt(yearInputValue);
-			document.onmousemove = null;
+			//document.onmousemove = null;
 	    }
 		
 		year_input.onkeydown = function(e){
@@ -111,15 +112,40 @@ $(document).ready(function(){
 			e.stopPropagation(); 
 		}
 	}
+	var search_icon = document.getElementById('search_icon');
+	search_icon.onclick = function(){
+		$('#search_icon').hide(300)
+	    setTimeout(function(){
+	    	    $('#search').show();
+		    $('#search').animate({
+		     	width: '300px'
+		    },400);
+		    $('#search').animate({
+			    width: '260px'
+		    },200);
+		    setTimeout(function(){
+		    	    $('#search img').fadeIn(300);
+		    },500);
+	    },300)
+	    document.onclick = function(){
+	    	    if(search_icon.style.display == 'none'){
+	    	    	    $('#search img').fadeOut(300);
+	    	    	    $('#search').animate({
+	    	    	    	    width: '20px'
+	    	    	    },300)
+	    	    	    $('#search').hide(100);
+	    	    	    setTimeout(function(){
+	    	    	    	    $('#search_icon').fadeIn();
+	    	    	    },400)
+	    	    	    
+	    	    }
+	    }
+	    document.getElementById('search').onclick = function(e){
+			e.stopPropagation(); 
+		}
+	}
 	
 
-
-
-        
-	
-
-	
-	
 	$('#nianbiao').click(function(){
 	    $('#bai').fadeIn(500);
 	    $('#list').animate({
@@ -141,7 +167,7 @@ $(document).ready(function(){
 		    	height: '84px',
 		    	bottom: '30px',
 		    	right: '50px',
-		    	borderRadius: '2px'
+		    	borderRadius: '5px'
 	    },200);
 	    $('#mode_button').html('');
 	    $('#size').animate({
@@ -179,6 +205,79 @@ $(document).ready(function(){
     }).mouseover(function(){
     	    clearTimeout(handle);
     });
-    console.log()
+    
+    var gain = document.getElementById('gain');
+    var reduce = document.getElementById('reduce');
+
+
+    gain.onclick = function(){
+    	    var oldSize = parseInt($('#map_img').css('width'));
+    	    var newSize;
+    	    if(oldSize * 1.5 <= 2700){
+    	    	    newSize = 1.5 * oldSize;
+    	    }else{
+    	    	    newSize = 2700;
+    	    }
+    	    $("#map_img").animate({
+    	    	    width: newSize + 'px',
+    	    },200)
+
+    }
+    reduce.onclick = function(){
+    	    var oldSize = parseInt($('#map_img').css('width'));
+    	    var newSize;
+    	    if(oldSize / 1.5 > 1200){
+    	    	    newSize = oldSize / 1.5;
+    	    }else{
+    	    	    newSize = 1200;
+    	    	    setTimeout(function(){
+    	    	    	$('#map_img').animate({
+    	    	    	    left: 0,
+    	    	    	    top: 0
+    	    	    },200)
+    	    	    },)
+    	    	    
+    	    }
+    	    $("#map_img").animate({
+    	    	    width: newSize + 'px',
+    	    },200)
+
+    }
+    map_img.onmousedown = function(e){
+    	    var disX = e.clientX - map_img.offsetLeft;
+    	    var disY = e.clientY - map_img.offsetTop;
+    	    $('body, #map_img').css({'cursor': 'move'});
+    	    document.onmousemove = function(e){
+    	    	    if(map_img.style.width > '1200px'){
+    	    	    	    var windowWidth = parseFloat(document.body.clientWidth);
+    	    	    	    var a = parseInt(map_img.style.width) * 0.16;
+    	    	    	    var b = parseInt(map_img.style.width) * 0.7;
+    	    	    	    var direction;//鼠标方向
+    	    	    	    
+    	    	    	    if(parseInt(map_img.style.left) >= (windowWidth - a)) {
+    	    	    	    	    map_img.style.left = (windowWidth - a) + 'px';
+    	    	    	    }else{
+    	    	    	    	    map_img.style.left = e.clientX - disX + 'px';
+    	    	    	    }
+    	    	    	    
+    	    	    	    if(parseInt(map_img.style.left) <= -b) {
+    	    	    	    	    map_img.style.left = -b + 'px';
+    	    	    	    }else{
+    	    	    	    	    map_img.style.left = e.clientX - disX + 'px';
+    	    	    	    }
+
+    	    	    	    
+    	            map_img.style.top = e.clientY - disY + 'px';
+    	    	    }
+        }
+    	    document.onmouseup = function(){
+    	    	    document.onmousemove = null;
+    	    	    document.onmouseup = null;
+    	    	    $('body').css({'cursor': 'auto'});
+    	    }
+    }
+
+
+
 });
 
