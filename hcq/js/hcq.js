@@ -16,7 +16,24 @@ $(document).ready(function(){
 	var year = Number(year_content.textContent);
 
 	var map = document.getElementById('map');
-	
+	(function readTXT(){
+    	    htmlobj = $.ajax({
+    	    	type:"get",
+    	    	url:"file/nianbiao.txt",
+    	    	async:false
+    	    });
+    	    var str = htmlobj.responseText.split('-');
+    	    //console.log(str);
+    	    var reg = /(\d\d\d)/g;
+    	    for(var i = 0; i < str.length; i++){
+    	    	    if(reg.test(str[i])){
+    	    	    	    var strContent = str[i+1].replace(/ /g, '<br />');
+    	    	    	    list_main.innerHTML = list_main.innerHTML + 
+    	    	    	    "<div><div class='list_line'><div class='circle'></div><div class='line' style='height:" + (strContent.replace(/br/g).length + 60) + "px'></div></div><div class='list_words'><div class='list_title'>公元前 <span>" + str[i] + "</span> 年</div><div class='list_content'>"+ strContent + "</div></div></div>";
+    	    	    	    
+    	    	    }
+    	    }
+    }())
 	hideIcon();
 	year_gain.onclick = function(){
 		if(year < 256){
@@ -98,7 +115,7 @@ $(document).ready(function(){
 			changeMap(yearInputValue);
 			hideIcon();
 			year_content.innerHTML = parseInt(yearInputValue);
-			//document.onmousemove = null;
+			document.onmousemove = null;
 	    }
 		
 		year_input.onkeydown = function(e){
@@ -208,20 +225,21 @@ $(document).ready(function(){
     
     var gain = document.getElementById('gain');
     var reduce = document.getElementById('reduce');
+    var rulerNum = document.getElementById('rulerNum');
 
 
     gain.onclick = function(){
     	    var oldSize = parseInt($('#map_img').css('width'));
     	    var newSize;
-    	    if(oldSize * 1.5 <= 2700){
+    	    if(oldSize * 1.5 < 2700){
     	    	    newSize = 1.5 * oldSize;
     	    }else{
     	    	    newSize = 2700;
     	    }
     	    $("#map_img").animate({
-    	    	    width: newSize + 'px',
-    	    },200)
-
+    	    	    width: newSize + 'px'
+    	    },200);
+    	    rulerChange(newSize);
     }
     reduce.onclick = function(){
     	    var oldSize = parseInt($('#map_img').css('width'));
@@ -236,62 +254,88 @@ $(document).ready(function(){
     	    	    	    top: 0
     	    	    },200)
     	    	    },)
-    	    	    
     	    }
     	    $("#map_img").animate({
     	    	    width: newSize + 'px',
-    	    },200)
-
+    	    },200);
+    	    rulerChange(newSize);
     }
-    (function readTXT(){
-    	    htmlobj = $.ajax({
-    	    	type:"get",
-    	    	url:"file/nianbiao.txt",
-    	    	async:false
-    	    });
-    	    var str = htmlobj.responseText.split('-');
-    	    //console.log(str);
-    	    var reg = /(\d\d\d)/g;
-    	    for(var i = 0; i < str.length; i++){
-    	    	    if(reg.test(str[i])){
-    	    	    	    var strContent = str[i+1].replace(/ /g, '<br />');
-    	    	    	    list_main.innerHTML = list_main.innerHTML + 
-    	    	    	    "<div><div class='list_line'><div class='circle'></div><div class='line' style='height:" + (strContent.replace(/br/g).length + 60) + "px'></div></div><div class='list_words'><div class='list_title'>公元前 <span>" + str[i] + "</span> 年</div><div class='list_content'>"+ strContent + "</div></div></div>";
-    	    	    	    
-    	    	    }
+    function rulerChange(x){
+    	    //var imgSize = parseInt($('#map_img').css('width'));
+    	    if(x == 1800){
+    	    	    $('#ruler').animate({
+    	    	        width: 60 + 'px'
+    	        });
+    	    	    rulerNum.innerHTML = '1';
+    	    	    console.log('1800')
+    	    }else if(x == 2700){
+    	    	    $('#ruler').animate({
+    	    	        width: 90 + 'px'
+    	        });
+    	        rulerNum.innerHTML = '1';
+    	        console.log('2700')
+    	    }else if(x == 1200){
+    	    	    $('#ruler').animate({
+    	    	        width: 80 + 'px'
+    	        });
+    	        rulerNum.innerHTML = '2';
+    	        console.log('1200')
     	    }
-    }())
+    }
+    
     map_img.onmousedown = function(e){
     	    var disX = e.clientX - map_img.offsetLeft;
     	    var disY = e.clientY - map_img.offsetTop;
-    	    //$('body, #map_img').css({'cursor': 'move'});
+    	    var mouseY = e.clientY;
+    	    var mouseX = e.clientX;
+    	    $('body, #map_img').css({'cursor': 'move'});
     	    document.onmousemove = function(e){
+    	    	    var difX = e.clientX - mouseX;
+    	    	    var difY = e.clientY - mouseY;
+    	    	    var dirX, dirY;
+    	    	    if(difX > 0) dirX = 1; else dirX = 2;
+    	    	    if(difY > 0) dirY = 1; else dirY = 2;
     	    	    if(map_img.style.width > '1200px'){
-    	    	    	    var windowWidth = parseFloat(document.body.clientWidth);
-    	    	    	    var a = parseInt(map_img.style.width) * 0.16;
-    	    	    	    var b = parseInt(map_img.style.width) * 0.7;
-    	    	    	    var direction;//鼠标方向
-    	    	    	    
-    	    	    	    if(parseInt(map_img.style.left) >= (windowWidth - a)) {
-    	    	    	    	    map_img.style.left = (windowWidth - a) + 'px';
-    	    	    	    }else{
-    	    	    	    	    map_img.style.left = e.clientX - disX + 'px';
+    	    	    	    var windowWidth = parseInt(document.body.clientWidth);
+    	    	    	    var windowHeight = parseInt(document.documentElement.clientHeight);
+    	    	    	    var a = parseInt(map_img.style.width) * 0.4;
+    	    	    	    var b = parseInt(map_img.style.width) * 0.5 * -1;
+    	    	    	    var c = parseInt(map_img.scrollHeight) * 0.56;
+    	    	    	    var d = parseInt(map_img.scrollHeight) * 0.5 * -1;
+    	    	    	    if(dirX == 1){
+    	    	    	    	    if(parseInt(map_img.style.left) >= (windowWidth - a)) {
+    	    	    	    	        map_img.style.left = (windowWidth - a) + 'px';
+    	    	    	        }else{
+    	    	    	    	        map_img.style.left = e.clientX - disX + 'px';
+    	    	    	        }
     	    	    	    }
-    	    	    	    
-    	    	    	    if(parseInt(map_img.style.left) <= -b) {
-    	    	    	    	    map_img.style.left = -b + 'px';
-    	    	    	    }else{
-    	    	    	    	    map_img.style.left = e.clientX - disX + 'px';
+    	    	    	    if(dirX == 2){
+    	    	    	    	    if(parseInt(map_img.style.left) <= b) {
+    	    	    	    	        map_img.style.left = b + 'px';
+    	    	    	        }else{
+    	    	    	    	        map_img.style.left = e.clientX - disX + 'px';
+    	    	    	        }
     	    	    	    }
-
-    	    	    	    
-    	            map_img.style.top = e.clientY - disY + 'px';
+    	    	    	    if(dirY == 1){
+    	    	    	    	    if(parseInt(map_img.style.top) >= parseInt(windowHeight - c)) {
+    	    	    	    	        map_img.style.top = parseInt((windowHeight - c)) + 'px';
+    	    	    	        }else{
+    	    	    	    	        map_img.style.top = e.clientY - disY + 'px';
+    	    	    	        }
+    	    	    	    }
+    	    	    	    if(dirY == 2){
+    	    	    	    	    if(parseInt(map_img.style.top) <= parseInt(d)) {
+    	    	    	    	        map_img.style.top = d + 'px';
+    	    	    	        }else{
+    	    	    	    	        map_img.style.top = e.clientY - disY + 'px';
+    	    	    	        }
+    	    	    	    }
     	    	    }
         }
     	    document.onmouseup = function(){
     	    	    document.onmousemove = null;
     	    	    document.onmouseup = null;
-    	    	    //$('body').css({'cursor': 'auto'});
+    	    	    $('body').css({'cursor': 'auto'});
     	    }
     }
     
