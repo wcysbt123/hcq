@@ -243,10 +243,28 @@ $(document).ready(function(){
     	    },200)
 
     }
+    (function readTXT(){
+    	    htmlobj = $.ajax({
+    	    	type:"get",
+    	    	url:"file/nianbiao.txt",
+    	    	async:false
+    	    });
+    	    var str = htmlobj.responseText.split('-');
+    	    //console.log(str);
+    	    var reg = /(\d\d\d)/g;
+    	    for(var i = 0; i < str.length; i++){
+    	    	    if(reg.test(str[i])){
+    	    	    	    var strContent = str[i+1].replace(/ /g, '<br />');
+    	    	    	    list_main.innerHTML = list_main.innerHTML + 
+    	    	    	    "<div><div class='list_line'><div class='circle'></div><div class='line' style='height:" + (strContent.replace(/br/g).length + 60) + "px'></div></div><div class='list_words'><div class='list_title'>公元前 <span>" + str[i] + "</span> 年</div><div class='list_content'>"+ strContent + "</div></div></div>";
+    	    	    	    
+    	    	    }
+    	    }
+    }())
     map_img.onmousedown = function(e){
     	    var disX = e.clientX - map_img.offsetLeft;
     	    var disY = e.clientY - map_img.offsetTop;
-    	    $('body, #map_img').css({'cursor': 'move'});
+    	    //$('body, #map_img').css({'cursor': 'move'});
     	    document.onmousemove = function(e){
     	    	    if(map_img.style.width > '1200px'){
     	    	    	    var windowWidth = parseFloat(document.body.clientWidth);
@@ -273,38 +291,11 @@ $(document).ready(function(){
     	    document.onmouseup = function(){
     	    	    document.onmousemove = null;
     	    	    document.onmouseup = null;
-    	    	    $('body').css({'cursor': 'auto'});
+    	    	    //$('body').css({'cursor': 'auto'});
     	    }
     }
-    map_img.onmousewheel = function(){
-    	    var oldSize = parseInt($('#map_img').css('width'));
-    	    var newSize;
-    	    if(oldSize - 200 > 1200){
-    	    	    newSize = oldSize - 200;
-    	    }else{
-    	    	    newSize = 1200;
-    	    	    setTimeout(function(){
-    	    	    	$('#map_img').animate({
-    	    	    	    left: 0,
-    	    	    	    top: 0
-    	    	    },200)
-    	    	    },)
-    	    	    
-    	    }
-    	    $("#map_img").animate({
-    	    	    width: newSize + 'px',
-    	    },200)
-    }
-    function readExcel(){
-    	    htmlobj = $.ajax({
-    	    	type:"get",
-    	    	url:"file/nianbiao.txt",
-    	    	async:false
-    	    });
-    	    list.innerHTML = htmlobj.responseText
-        console.log(htmlobj.responseText)
-    }
-    readExcel();
+    
+
 
 
 
