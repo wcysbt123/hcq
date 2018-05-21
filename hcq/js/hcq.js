@@ -276,6 +276,35 @@ $(document).ready(function(){
     	    	    $('body').css({'cursor': 'auto'});
     	    }
     }
+    map_img.onmousewheel = function(){
+    	    var oldSize = parseInt($('#map_img').css('width'));
+    	    var newSize;
+    	    if(oldSize - 200 > 1200){
+    	    	    newSize = oldSize - 200;
+    	    }else{
+    	    	    newSize = 1200;
+    	    	    setTimeout(function(){
+    	    	    	$('#map_img').animate({
+    	    	    	    left: 0,
+    	    	    	    top: 0
+    	    	    },200)
+    	    	    },)
+    	    	    
+    	    }
+    	    $("#map_img").animate({
+    	    	    width: newSize + 'px',
+    	    },200)
+    }
+    function readExcel(){
+    	    htmlobj = $.ajax({
+    	    	type:"get",
+    	    	url:"file/nianbiao.txt",
+    	    	async:false
+    	    });
+    	    list.innerHTML = htmlobj.responseText
+        console.log(htmlobj.responseText)
+    }
+    readExcel();
 
 
 
