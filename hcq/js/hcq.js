@@ -373,8 +373,8 @@ $(document).ready(function(){
     	    	    	    var xy = str[i+1].toString().split(' ');
     	    	    	    	//console.log(xy)
     	    	    	    var x = xy[0] * parseInt(map_img.scrollWidth) + parseInt(map_img.getBoundingClientRect().left);
-    	    	    	    var y = xy[1] * parseInt(newMapHeight) + parseInt($('#map_img').offset().top);
-    	    	    	    console.log(map_img.getBoundingClientRect().top)
+    	    	    	    var y = xy[1] * parseInt(map_img.scrollHeight) + parseInt(map_img.getBoundingClientRect().top);
+    	    	    	    console.log($('#map_img').offset().top)
     	    	    	    city.innerHTML = city.innerHTML + "<div class='city' id='city" + i + "' style='left:"+x+"px; top:"+y+"px;'><div class='city_position'></div><p class='city_name'>"+str[i]+"</p></div>"
     	    	    }
     	    }
