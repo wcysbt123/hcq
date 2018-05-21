@@ -5,7 +5,9 @@
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
+                
 		    }
+		    
 		    body{
 		    	    background-image: url(../img/bg/1.jpg);
 		    	    background-size: cover;
@@ -291,8 +293,8 @@
 		    #mode_button{
 		    	    height: 39px;
 		    	    width: 39px;
-		    	    color: #FFFFFF;
-		    	    background-color: #F69C41;
+		    	    color: #F69C41;
+		    	    background-color: #FFFFFF;
 		    	    font-size: 12px;
 		    	    position: absolute;
 		    	    right: 50px;
@@ -371,5 +373,38 @@
 		    }
 		    #search_icon,#gain,#reduce,#nianbiao,#year{
 		    	cursor: pointer;
+		    }
+		    #test{
+		    	    width: 1200px;
+		    	    margin: 0 auto;
+		    	    margin-top: 5px;
+		    	    left: -7px;
+		    	    position: relative;
+		    	    right: 0;
+		    	    opacity: 0.5;
+		    	    display: none;
+		    }
+		    #city{
+		    	    position: absolute;
+		    	    font-size: 9px;
+		    	    top: -2px;
+		    	    left: -2px;
+		    }
+		    .city_name{
+		    	    width: 40px;
+		    	    margin-top: -3px;
+		    	    margin-left: -8px;
+		    }
+		    .city{
+		    	    position: absolute;
+		    	    display: flex;
+		    	    justify-content: flex-start;
+		    	    
+		    }
+		    .city_position{
+		    	    width: 5px;
+		    	    height: 5px;
+		    	    background-color: black;
+		    	    border-radius: 100%;
 		    }
 

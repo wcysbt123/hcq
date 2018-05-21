@@ -16,7 +16,19 @@ $(document).ready(function(){
 	var year = Number(year_content.textContent);
 
 	var map = document.getElementById('map');
-	(function readTXT(){
+	var city = document.getElementById('city');
+	var text = document.getElementById('test');
+	
+    var mapWidth = map_img.style.width = document.body.clientWidth + 'px';
+    var mapHeight = 31 / 50 * parseInt(mapWidth) + 'px';
+    var newMapHeight = mapHeight;
+    map_img.style.marginTop = ($(window).height() - parseInt(mapHeight)) / 2 + 30 + 'px';
+    //console.log($(window).height())
+    text.style.top = map_img.style.top + map_img.style.marginTop;
+    text.style.width = map_img.style.width;//console.log(text.style.left);
+    text.style.top = parseInt(text.style.top) - 37 + 'px';
+    
+	(function readYearList(){
     	    htmlobj = $.ajax({
     	    	type:"get",
     	    	url:"file/nianbiao.txt",
@@ -184,7 +196,8 @@ $(document).ready(function(){
 		    	height: '84px',
 		    	bottom: '30px',
 		    	right: '50px',
-		    	borderRadius: '5px'
+		    	borderRadius: '5px',
+		    	backgroundColor: '#F69C41'
 	    },200);
 	    $('#mode_button').html('');
 	    $('#size').animate({
@@ -207,7 +220,8 @@ $(document).ready(function(){
 		       	height: '39px',
 	     	    	bottom: '30px',
 	     	    	right: '50px',
-	     	    	borderRadius: '10px'
+	     	    	borderRadius: '10px',
+	     	    	backgroundColor: '#FFFFFF'
 	        },200);
 	        $('#size').animate({
 	    	        bottom: '80px'
@@ -226,28 +240,35 @@ $(document).ready(function(){
     var gain = document.getElementById('gain');
     var reduce = document.getElementById('reduce');
     var rulerNum = document.getElementById('rulerNum');
+    var city1 = document.getElementById('city1');
 
-
+    
+    
     gain.onclick = function(){
-    	    var oldSize = parseInt($('#map_img').css('width'));
+    	    var oldSize = parseInt(map_img.scrollWidth);
     	    var newSize;
-    	    if(oldSize * 1.5 < 2700){
+    	    if(oldSize * 1.5 < parseInt(mapWidth) * 2.25){
     	    	    newSize = 1.5 * oldSize;
+    	    	    console.log("aa");
     	    }else{
-    	    	    newSize = 2700;
+    	    	    newSize = parseInt(mapWidth) * 2.25;
     	    }
     	    $("#map_img").animate({
     	    	    width: newSize + 'px'
     	    },200);
+    	    
     	    rulerChange(newSize);
+    	    
+
     }
     reduce.onclick = function(){
-    	    var oldSize = parseInt($('#map_img').css('width'));
+    	    var oldSize = parseInt(map_img.scrollWidth);
     	    var newSize;
-    	    if(oldSize / 1.5 > 1200){
+    	    if(oldSize / 1.5 > parseInt(mapWidth)){
     	    	    newSize = oldSize / 1.5;
     	    }else{
-    	    	    newSize = 1200;
+    	    	    console.log("bb")
+    	    	    newSize = parseInt(mapWidth);
     	    	    setTimeout(function(){
     	    	    	$('#map_img').animate({
     	    	    	    left: 0,
@@ -267,22 +288,21 @@ $(document).ready(function(){
     	    	        width: 60 + 'px'
     	        });
     	    	    rulerNum.innerHTML = '1';
-    	    	    console.log('1800')
+    	    	    //console.log('1800')
     	    }else if(x == 2700){
     	    	    $('#ruler').animate({
     	    	        width: 90 + 'px'
     	        });
     	        rulerNum.innerHTML = '1';
-    	        console.log('2700')
+    	        //console.log('2700')
     	    }else if(x == 1200){
     	    	    $('#ruler').animate({
     	    	        width: 80 + 'px'
     	        });
     	        rulerNum.innerHTML = '2';
-    	        console.log('1200')
+    	        //console.log('1200')
     	    }
     }
-    
     map_img.onmousedown = function(e){
     	    var disX = e.clientX - map_img.offsetLeft;
     	    var disY = e.clientY - map_img.offsetTop;
@@ -338,6 +358,36 @@ $(document).ready(function(){
     	    	    $('body').css({'cursor': 'auto'});
     	    }
     }
+    function cityPosition(){
+    	    htmlobj = $.ajax({
+    	    	type:"get",
+    	    	url:"file/city.txt",
+    	    	async:false
+    	    });
+    	    var str = htmlobj.responseText.split('-');
+    	    var cityName = [];
+    	    //console.log(str);
+    	    var reg = /[\u4e00-\u9fa5]{2,4}/;
+    	    for(var i = 0; i < str.length; i++){
+    	    	    if(reg.test(str[i])){
+    	    	    	    var xy = str[i+1].toString().split(' ');
+    	    	    	    	//console.log(xy)
+    	    	    	    var x = xy[0] * parseInt(map_img.scrollWidth) + parseInt(map_img.getBoundingClientRect().left);
+    	    	    	    var y = xy[1] * parseInt(newMapHeight) + parseInt($('#map_img').offset().top);
+    	    	    	    console.log(map_img.getBoundingClientRect().top)
+    	    	    	    city.innerHTML = city.innerHTML + "<div class='city' id='city" + i + "' style='left:"+x+"px; top:"+y+"px;'><div class='city_position'></div><p class='city_name'>"+str[i]+"</p></div>"
+    	    	    }
+    	    }
+    	    
+    }
+    cityPosition();
+    document.onclick = function(e){
+    	    var x = (e.clientX - parseInt(map_img.getBoundingClientRect().left))/ parseInt(map_img.scrollWidth);
+    	    var y = (e.clientY - parseInt(map_img.getBoundingClientRect().top)) / parseInt(map_img.scrollHeight);
+    	    console.log(x,y)
+    }
+    
+    
     
 
 
