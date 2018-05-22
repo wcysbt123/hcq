@@ -390,17 +390,17 @@ $(document).ready(function(){
     	    	    $('#ruler').animate({
     	    	        width: 60 + 'px'
     	        });
-    	    	    rulerNum.innerHTML = '1';
+    	    	    rulerNum.innerHTML = '250';
     	    }else if(x >= parseInt(mapWidth) * 2.2){
     	    	    $('#ruler').animate({
     	    	        width: 90 + 'px'
     	        });
-    	        rulerNum.innerHTML = '1';
+    	        rulerNum.innerHTML = '250';
     	    }else if(x == parseInt(mapWidth)){
     	    	    $('#ruler').animate({
     	    	        width: 80 + 'px'
     	        });
-    	        rulerNum.innerHTML = '2';
+    	        rulerNum.innerHTML = '500';
     	    }
     }
     
