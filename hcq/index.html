@@ -6,17 +6,33 @@
 		<style type="text/css" >
 	        @import url("css/hcq.css");
 		</style>
-		<script type="text/javascript" src="js/jquery/jquery-1.12.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery/jquery-color.js"></script>
 		<script type="text/javascript" src="js/hcq.js"></script>
 	</head>
 	<body>
-		
 		<div id="map">
 			<img id="map_img" src='img/map/256.png' draggable="false" />
-			<div id="city">
-			    
+			
+			<div id="capital" style="top: -12px;left: -15px;"></div>
+			<div id="city" style="top: -2px;left: -2px;"></div>
+		    <div id="junshi" style="top: -5px;left: -5px;">
+		    	    <!--<div class="junshi" id="junshi0" style="left:374.55210999999997px; top:447.19562px;">
+		    	       	<img class="junshi_icon" src="img/icon/junshi.png">
+		    	        <div class='junshi_detail'>
+		    	       		<img src="img/gif/222-1.gif">
+		    	       		<div class='junshi_content'>
+		    	       			<div><div class='junshi_circle'></div>时间：公元前222年</div>
+		    	       			<div><div class='junshi_circle'></div>属性：军事</div>
+		    	       			<div><div class='waijiao_circle'></div>内容：秦定江南</div>
+		    	       		</div>
+		    	       	</div>
+		    	    </div>-->
 		    </div>
+		    <div id="waijiao" style="top: -5px;left: -5px;">
+		    </div>
+		    
+		    
 		</div>
 		<div id="header">
 			<div><div id="search">
@@ -55,9 +71,9 @@
 		
 		<div id="mode_button">显示<br />模式</div>
 		<div id="mode_list">
-			<div id="mode_city"><div class="select"><img src="img/icon/select.png" /><p>城市</p></div></div>
-			<div id="mode_junshi"><div class="select"><img src="img/icon/select.png" /><p>军事</p></div></div>
-			<div id="mode_waijiao"><div class="select"><img src="img/icon/select.png" /><p>外交</p></div></div>
+			<div id="mode_city"><div class="select"><img src="img/icon/select.png" />城市</div></div>
+			<div id="mode_junshi"><div class="select"><img src="img/icon/select.png" />军事</div></div>
+			<div id="mode_waijiao"><div class="select"><img src="img/icon/select.png" />事件</div></div>
 		</div>
 		
 		<!--	年表-->
@@ -72,8 +88,8 @@
 			</div>
 		</div>
 		<!--	年表终-->
-		<img id="test" src="img/city.png" style="top: 0px; left: -4px;" />
-		
+		<img id="test" src="img/city.png" style="top: 3px; left: -4px;" />
+		<div id="black"></div>
 
 		
 		

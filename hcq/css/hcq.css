@@ -214,6 +214,7 @@
 		    	    margin: 0;
 		    	    opacity: 0.5;
 		    	    display: none;
+		    	    z-index: 111;
 		    }
 		    #list{
 		    	    position: absolute;
@@ -224,6 +225,7 @@
 		    	    height: 100%;
 		    	    background-color: #8C653E;
 		    	    box-shadow: 2px 0 30px #8C653E;
+		    	    z-index: 1111;
 		    }
 		    #title{
 		    	    height: 24px;
@@ -246,6 +248,7 @@
 		    	    height: 100%;
 		    	    margin: 80px 40px 0 40px;
 		    	    overflow: scroll;
+		    	    display: none;
 		    }
 		    
 		    #list_main > div{
@@ -325,10 +328,10 @@
 		    	    margin: 0 6px;
 		    	    color: #FFFFFF;
 		    	    text-align: center;
-		    	    text-shadow: 0 0 4px #8C653E;
 		    	    display: flex;
 		    	    justify-content: center;
 		    	    align-items: center;
+		    	    text-shadow: 0 0 4px #8C653E;
 		    	    box-sizing: border-box;
 		    }
 		    .select{
@@ -336,6 +339,7 @@
 		    	    height: 18px;
 		    	    border-radius: 10px;
 		    	    margin: 19px 0;
+		    	    
 		    }
 
 		    .select img{
@@ -354,22 +358,17 @@
 		    	    text-align: center;
 		    }
 		    #mode_city{
-		    	    background-image: url(../img/mode-1.jpg);
-		    	    box-sizing: border-box;
-		    	    border: 4px solid #FFFFFF;
+		    	    background-image: url(../img/mode_city1.jpg);
 		    }
 		    #mode_city .select img{
-		    	    display: block;
-		    }
-		    #mode_city .select p{
-		    	    width: 28px;
+		    	    display: none;
 		    }
 		    #mode_junshi{
-		    	    background-image: url(../img/mode-1.jpg);
+		    	    background-image: url(../img/mode_junshi1.jpg);
 		    }
 		    
 		    #mode_waijiao{
-		    	    background-image: url(../img/mode-1.jpg);
+		    	    background-image: url(../img/mode_waijiao1.jpg);
 		    }
 		    #search_icon,#gain,#reduce,#nianbiao,#year{
 		    	cursor: pointer;
@@ -382,29 +381,165 @@
 		    	    position: relative;
 		    	    right: 0;
 		    	    opacity: 0.5;
-		    	    
+		    	    display: none;
 		    }
 		    #city{
 		    	    position: absolute;
 		    	    font-size: 9px;
-		    	    top: -2px;
-		    	    left: -2px;
+		    	    display: none;
 		    }
 		    .city_name{
 		    	    width: 40px;
 		    	    margin-top: -3px;
-		    	    margin-left: -8px;
+		    	    margin-left: 3px;
+		    	    text-align: left;
+		    	    font-weight: lighter;
 		    }
 		    .city{
 		    	    position: absolute;
 		    	    display: flex;
 		    	    justify-content: flex-start;
-		    	    
 		    }
 		    .city_position{
-		    	    width: 5px;
-		    	    height: 5px;
+		    	    width: 4px;
+		    	    height: 4px;
+		    	    border-radius: 100%;
 		    	    background-color: black;
 		    	    border-radius: 100%;
 		    }
-
+		    #capital{
+		    	    position: absolute;
+		    	    font-size: 15px;
+		    	    display: none;
+		    }
+		    .capital{
+		    	    position: absolute;
+		    	    display: flex;
+		    	    justify-content: flex-start;
+		    }
+		    .capital_icon{
+		    	    height: 10px;
+		    }
+		    .capital_name{
+		      	text-align: left;
+		    	    font-weight: lighter;
+		    	    margin-top: -5px;
+		    	    margin-left: 3px;
+		    	    width: 50px;
+		    	    color: #fff;
+		    }
+		    #junshi{
+		    	    position: absolute;
+		    	    font-size: 15px;
+		    	    display: none;
+		    	    z-index: 11;
+		    }
+		    .junshi{
+		    	    position: absolute;
+		    	    text-align: left;
+		    }
+		    .junshi_icon{
+		    	    height: 15px;
+		    }
+		    #waijiao{
+		    	    position: absolute;
+		    	    font-size: 15px;
+		    }
+		    .waijiao{
+		    	    position: absolute;
+		    	    text-align: left;
+		    	    display: flex;
+		    }
+		    .waijiao_icon{
+		    	    height: 18px;
+		    }
+		    .waijiao_detail{
+		    	    width: 230px;
+		    	    height: 300px;
+		    	    margin-left: 10px;
+		    	    background-color: rgba(255, 255, 255, 0.7);
+		    	    position: relative;
+		    	    top: 0;
+		    	    display: none;
+		    }
+		    .waijiao_title{
+	     	    	 height: 23px;
+		      	 width: 100%; 
+	 	    	     position: relative;
+		     	 top: 20px;
+		     	 display: flex;
+		     	 justify-content: flex-end;
+		     	 font-size: 15px;
+		     	 line-height: 23px;
+		     	 color: #B97925;
+		    }
+		    .waijiao_square{
+		    	    height: 100%;
+		    	    width: 20px;
+		    	    background-color: #B97925;
+		    	    margin-left: 10px;
+		    }
+		    .waijiao_content{
+		    	    font-size: 12px;
+		    	    font-weight: lighter;
+		    	    line-height: 18px;
+		    	    margin: 35px 30px;
+		    	    height: 220px;
+		    	    overflow: scroll;
+		    }
+		    .waijiao_content>div{
+		    	    display: flex;
+		    	    justify-content: flex-start;
+		    }
+		    .waijiao_circle{
+		    	    height: 5px;
+		    	    width: 5px;
+		    	    background-color: #B97925;
+		    	    border-radius: 100%;
+		    	    margin: 6.5px;
+		    }
+		    .junshi_detail{
+		    	    width: 260px;
+		    	    height: 300px;
+		    	    margin-left: 10px;
+		    	    background-color: rgba(255, 255, 255, 0.7);
+		    	    position: relative;
+		    	    top: 0;
+		    	    display: none;
+		    	    text-align: left;
+		    }
+		    .junshi_detail img{
+		    	    width: 92.3%;
+		    	    margin: 20px 15px;
+		    	    position: relative;
+		    	    top: 0;
+		    }
+		    .junshi_content{
+		    	    font-size: 12px;
+		    	    font-weight: lighter;
+		    	    line-height: 18px;
+		    	    margin: 35px 30px;
+		    	    height: 220px;
+		    	    overflow: scroll;
+		    }
+		    .junshi_content>div{
+		    	    display: flex;
+		    	    justify-content: flex-start;
+		    }
+		    .junshi_circle{
+		    	    height: 5px;
+		    	    width: 5px;
+		    	    background-color: #B97925;
+		    	    border-radius: 100%;
+		    	    margin: 6.5px;
+		    }
+		    #black{
+		    	    position: absolute;
+		    	    top: 0;
+		    	    display: none;
+		    	    background-color: black;
+		    	    width: 100%;
+		    	    height: 100%;
+		    	    opacity: 0.5;
+		    	    
+		    }
