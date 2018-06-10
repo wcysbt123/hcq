@@ -355,6 +355,7 @@ $(document).ready(function(){
      	    	    waijiaoPosition(a,b);
      	    }
     	        
+    	        
     	    }else{
     	    	    isMin = 1;
     	    	    console.log("bb")
@@ -369,16 +370,19 @@ $(document).ready(function(){
      	    	    },200)
     	    	    },)
     	    	    $('#capital').fadeOut(300);
-    	    	    if(isCity == 1){
-     	        capitalPosition(a,b);
-     	    }
-    	    	    if(isJs == 1){
-     	    	    junshiPosition(a,b);
-     	    }
-     	    if(isWj == 1){
-     	    	    waijiaoPosition(a,b);
-     	    }
+    	    	    
     	    }
+    	    if(isCity == 1){
+    	        capitalPosition(a,b);
+    	        if(isMin == 0) cityPosition(a,b);
+     	}
+    	    if(isJs == 1){
+     	    	junshiPosition(a,b);
+     	}
+     	if(isWj == 1){
+     	    	waijiaoPosition(a,b);
+        }
+    	    
     	    $("#map_img").animate({
     	    	    width: newSize + 'px',
     	    },200);
@@ -618,6 +622,10 @@ $(document).ready(function(){
     	    	    boxShadow: '0 0 5px #E19856',
     	    	    backgroundImage: 'url(img/'+str+'2.jpg)'
     	    	})
+    	    document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
     }
     function modeOut(str){
     	    $('#'+str).animate({
@@ -733,7 +741,7 @@ $(document).ready(function(){
         /*document.onclick = function(e){
     	    var x = (e.clientX - parseInt(map_img.getBoundingClientRect().left))/ parseInt(map_img.scrollWidth);
     	    var y = (e.clientY - parseInt(map_img.getBoundingClientRect().top)) / parseInt(map_img.scrollHeight);
-    	    console.log(x,y)
+    	    //console.log(x,y)
     }*/
 
     
