@@ -47,7 +47,10 @@ $(".tab .item").on("tap", function(){
 			opacity: "0.14"
 		})
 	});
-	$(".main-container").children().hide();
-	$(".main-container").children().eq(num).show();
+	$(".main-container").children().fadeOut(400);
+	setTimeout(function(){
+		$(".main-container").children().eq(num).fadeIn(400);
+	},400)
+	
 	
 })
