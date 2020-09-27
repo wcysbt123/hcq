@@ -31,26 +31,31 @@ if (document.body.clientHeight && document.documentElement.clientHeight) {
 }
 $("body").height(clientHeight + "px");
 
-$(".tab .item").on("tap", function(){
+var time;
+$(".tab .item").on("tap", function() {
 	var num = $(".tab .item").index(this);
+	var width = window.innerWidth || window.documentElement.clientWidth || window.body.clientWidth;
+	var selWidth = $(".tab").width() / (width * (100 / 375)) - 1.4;
+	console.log(selWidth)
+	$(".tab .item").stop();
+	$(".main-container").children().stop();
 	$(".tab .item.selected").removeClass("selected");
 	$(this).animate({
-		width: "1.71rem",
+		width: selWidth + "rem",
 		backgroundColor: "#be0a13",
 		opacity: "1"
 	});
 	$(this).addClass("selected");
-	$(".tab .item").not(".selected").each(function(){
+	$(".tab .item").not(".selected").each(function() {
 		$(this).animate({
 			width: "0.6rem",
 			backgroundColor: "#b7a5a6",
 			opacity: "0.14"
 		})
 	});
-	$(".main-container").children().fadeOut(400);
-	setTimeout(function(){
-		$(".main-container").children().eq(num).fadeIn(400);
-	},400)
-	
-	
+	clearTimeout(time);
+	time = setTimeout(function(){
+		$(".main-container").children().fadeOut(500);
+		$(".main-container").children().eq(num).fadeIn(500);
+	},200)
 })

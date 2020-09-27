@@ -66,13 +66,18 @@ body {
 	height: 100%;
 	background-color: rgba(255, 255, 255, 0.69);
 	border-radius: 0.08rem;
+	position: relative;
 }
 
 .words-1 {
 	font-size: 0.12rem;
 	color: #3D3D3D;
 }
-
+.main-container > div{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 .main-intro {
 	width: 100%;
 	height: calc(100% - 0.16rem);
@@ -86,21 +91,28 @@ body {
 	line-height: 0.18rem;
 	text-indent: 0.24rem;
 }
-.tab{
+
+.tab {
 	width: 100%;
 	margin-top: 0.18rem;
 	display: flex;
 	justify-content: space-between;
 }
-.tab .item{
+
+.tab .item {
 	height: 0.6rem;
 	width: 0.6rem;
 	background-color: #b7a5a6;
-		border-radius: 0.08rem;
-		opacity: 0.14;
+	border-radius: 0.08rem;
+	opacity: 0.14;
+	margin-right: 0.1rem;
 }
-.tab .item.selected{
-	width: 1.71rem;
-		background-color: #be0a13;
-		opacity: 1;
+.tab .item:last-child{
+	margin-right: 0;
+}
+
+.tab .item.selected {
+	width: calc(100% - 1.4rem);
+	background-color: #be0a13;
+	opacity: 1;
 }
