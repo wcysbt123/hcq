@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+body{
+	width: 100%;
+	background: url(../img/bg.png) no-repeat;
+	background-size: cover;
+}
+.container{
+	width: 100%;
+	padding: 0 0.32rem;
+	position: relative;
+}
+.tit{
+	width: 2.55rem;
+	position: absolute;
+	top: 0.59rem;
+}
