@@ -23,13 +23,11 @@ body {
 
 .tit {
 	width: 2.55rem;
-	position: absolute;
-	top: 0.72rem;
+	margin-top: 0.72rem;
 }
 
 .list-1 {
-	position: absolute;
-	top: 1.37rem;
+	margin-top: 0.1rem;
 }
 
 .list-1>div {
@@ -52,9 +50,8 @@ body {
 }
 
 .main {
-	position: absolute;
-	top: 1.98rem;
-	width: calc(100% - 0.64rem);
+	margin-top: 0.18rem;
+	width: 100%;
 	height: 2.23rem;
 	background-color: #f9f1f2;
 	box-shadow: 0rem 0.04rem 0.18rem 0rem rgba(158, 84, 88, 0.31);
@@ -84,8 +81,26 @@ body {
 	padding-top: 0.18rem;
 }
 
-.main-intro>p {
+.main-intro p {
 	margin-bottom: 0.1rem;
 	line-height: 0.18rem;
 	text-indent: 0.24rem;
+}
+.tab{
+	width: 100%;
+	margin-top: 0.18rem;
+	display: flex;
+	justify-content: space-between;
+}
+.tab .item{
+	height: 0.6rem;
+	width: 0.6rem;
+	background-color: #b7a5a6;
+		border-radius: 0.08rem;
+		opacity: 0.14;
+}
+.tab .item.selected{
+	width: 1.71rem;
+		background-color: #be0a13;
+		opacity: 1;
 }
