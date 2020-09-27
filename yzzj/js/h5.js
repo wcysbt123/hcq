@@ -1,7 +1,7 @@
 (function PageResize() {
 	(function getResize() {
 		var width = window.innerWidth || window.documentElement.clientWidth || window.body.clientWidth;
-		width > 750 ? width = 750 : null;
+		//width > 750 ? width = 750 : null;
 		width < 320 ? width = 320 : null;
 		document.documentElement.style.fontSize = (width * (100 / 375)) + 'px';
 		if (!window.onresize) {
@@ -41,7 +41,7 @@ $(".tab .item").on("tap", function() {
 	$(".main-container").children().stop();
 	$(".tab .item.selected").removeClass("selected");
 	$(this).animate({
-		width: selWidth + "rem",
+		width: "1.71rem",
 		backgroundColor: "#be0a13",
 		opacity: "1"
 	});

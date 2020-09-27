@@ -112,7 +112,7 @@ body {
 }
 
 .tab .item.selected {
-	width: calc(100% - 1.4rem);
+	width: 1.71rem;
 	background-color: #be0a13;
 	opacity: 1;
 }
