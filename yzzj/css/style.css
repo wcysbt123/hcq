@@ -16,6 +16,7 @@ body {
 
 .container {
 	width: 100%;
+	height: 100%;
 	padding: 0 0.32rem;
 	position: relative;
 }
@@ -53,7 +54,7 @@ body {
 .main {
 	position: absolute;
 	top: 1.98rem;
-	width: 3.11rem;
+	width: calc(100% - 0.64rem);
 	height: 2.23rem;
 	background-color: #f9f1f2;
 	box-shadow: 0rem 0.04rem 0.18rem 0rem rgba(158, 84, 88, 0.31);
@@ -69,22 +70,26 @@ body {
 	background-color: rgba(255, 255, 255, 0.69);
 	border-radius: 0.08rem;
 }
-.words-1{
+
+.words-1 {
 	font-size: 0.12rem;
 	color: #3D3D3D;
 }
-.main-intro{
+
+.main-intro {
 	width: 100%;
-	height:calc(100% - 0.18rem);
+	height: calc(100% - 0.18rem);
 	overflow-y: scroll;
 	padding: 0 0.22rem;
 	padding-top: 0.18rem;
 }
-.main-intro p{
+
+.main-intro p {
 	margin-bottom: 0.1rem;
 	line-height: 0.18rem;
 	text-indent: 0.24rem;
 }
+
 /* .main-intro p:last-child{
 	margin-bottom: 0;
 } */
