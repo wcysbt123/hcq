@@ -85,11 +85,7 @@ body {
 }
 
 .main-intro p {
-	margin-bottom: 0.1rem;
+	margin-bottom: 0.08rem;
 	line-height: 0.18rem;
 	text-indent: 0.24rem;
 }
-
-/* .main-intro p:last-child{
-	margin-bottom: 0;
-} */
