@@ -32,8 +32,22 @@ if (document.body.clientHeight && document.documentElement.clientHeight) {
 $("body").height(clientHeight + "px");
 
 $(".tab .item").on("tap", function(){
-	console.log("1")
+	var num = $(".tab .item").index(this);
+	$(".tab .item.selected").removeClass("selected");
 	$(this).animate({
-		width: "1.71rem"
-	})
+		width: "1.71rem",
+		backgroundColor: "#be0a13",
+		opacity: "1"
+	});
+	$(this).addClass("selected");
+	$(".tab .item").not(".selected").each(function(){
+		$(this).animate({
+			width: "0.6rem",
+			backgroundColor: "#b7a5a6",
+			opacity: "0.14"
+		})
+	});
+	$(".main-container").children().hide();
+	$(".main-container").children().eq(num).show();
+	
 })
