@@ -31,3 +31,9 @@ if (document.body.clientHeight && document.documentElement.clientHeight) {
 }
 $("body").height(clientHeight + "px");
 
+$(".tab .item").on("tap", function(){
+	console.log("1")
+	$(this).animate({
+		width: "1.71rem"
+	})
+})
