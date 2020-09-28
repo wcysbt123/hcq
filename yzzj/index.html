@@ -5,7 +5,7 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="font/iconfont.css">
-		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/swiper-bundle.min.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
@@ -33,13 +33,19 @@
 					</div>
 					<div class="main-pic" style="display: none;">
 						<div class="swiper-container">
-						    <div class="swiper-wrapper">
-						        <div class="swiper-slide">Slide 1</div>
-						        <div class="swiper-slide">Slide 2</div>
-						        <div class="swiper-slide">Slide 3</div>
-						    </div>
-						    <div class="swiper-button-prev swiper-button-white"></div>
-						    <div class="swiper-button-next swiper-button-white"></div>
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="img/p1.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="img/p2.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="img/p3.jpg" />
+								</div>
+							</div>
+							<div class="swiper-button-prev swiper-button-white"></div>
+							<div class="swiper-button-next swiper-button-white"></div>
 						</div>
 					</div>
 					<div class="main-plant" style="display: none;">植物</div>
@@ -88,17 +94,22 @@
 		<script src="js/jquery.color.js"></script>
 		<script src="js/zepto.min.js"></script>
 		<script src="js/touch.js"></script>
-		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper-bundle.min.js"></script>
 		<script src="js/h5.js"></script>
 		<script>
-			var swiper = new Swiper('.swiper-container', {
-			  speed: 2000,
-			  navigation: {
-			      nextEl: '.swiper-button-next',
-			      prevEl: '.swiper-button-prev',
-			    },
+			var mySwiper = new Swiper('.swiper-container', {
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				
 			});
-			  
+			$(".swiper-button-next").on("tap", function(){
+				 mySwiper.slideNext();
+			})
+			$(".swiper-button-prev").on("tap", function(){
+				 mySwiper.slidePrev();
+			})
 		</script>
 	</body>
 </html>
