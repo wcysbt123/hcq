@@ -128,18 +128,20 @@ body {
 	background-color: #eae7e8;
 	box-shadow: none;
     border-radius: 100%;
-	position: relative;
+	position: absolute;
 }
-
-.tab .item.selected .tab-icon {
+.tab .item .tab-icon.no-sel{
+	background-color: transparent;
+	box-shadow: none;
+}
+.tab .item .tab-icon.sel{
+	display: none;
+	z-index: 1111111;
 	background-color: #fff;
 	box-shadow: 0rem 0.07rem 0.05rem 0rem rgba(146, 10, 17, 0.56);
 }
-
-.tab .item .tab-icon  i{
-	opacity: 0.5;
-	color: #B7A5A6;
-	font-size: 0.24rem;
+.tab .item .tab-icon i{
+	font-size: 0.22rem;
 	width: 100%;
 	text-align: center;
 	position: absolute;
@@ -148,12 +150,14 @@ body {
 	top: 0;
 	left: 0;
 }
-.tab .item.selected .tab-icon i{
+.tab .item .tab-icon.no-sel i{
+	color: #B7A5A6;
+	opacity: 0.5;
+}
+.tab .item .tab-icon.sel i{
 	color: #BE0A13;
 	opacity: 1;
-	font-size: 0.2rem;
 }
-
 .tab .item .tab-words{
 	display: none;
 }
@@ -161,7 +165,6 @@ body {
 	position: absolute;
 	right: 0.14rem;
 	top: 0.18rem;
-	display: block;
 }
 .tab .item.selected .tab-words div{
 	width: 0.64rem;

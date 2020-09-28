@@ -47,16 +47,12 @@ $(".tab .item").on("tap", function() {
 		backgroundColor: "#be0a13",
 		opacity: "1"
 	});
-	$(this).children(".tab-icon").animate({
-		backgroundColor: "#fff",
-		boxShadow: "0rem 0.07rem 0.05rem 0rem rgba(146, 10, 17, 0.56)"
-	},600)
 	$(this).children(".tab-icon").children("i").animate({
-		fontSize: "0.2rem",
 		color: "#BE0A13",
 		opacity: "1"
 	})
-	$(this).children(".tab-words").fadeIn(600);
+	$(this).children(".tab-icon.sel").fadeIn(700);
+	$(this).children(".tab-words").fadeIn(700);
 	
 	$(this).addClass("selected");
 	
@@ -65,16 +61,13 @@ $(".tab .item").on("tap", function() {
 			//width: "0.6rem",
 			backgroundColor: "#eae7e8",
 		});
-		$(this).children(".tab-icon").animate({
-			backgroundColor: "#eae7e8",
-			boxShadow: "none"
-		},500)
 		$(this).children(".tab-icon").children("i").animate({
-			fontSize: "0.24rem",
+			//fontSize: "0.24rem",
 			color: "#B7A5A6",
 			opacity: "0.5"
 		})
 		$(this).children(".tab-words").hide();
+		$(this).children(".tab-icon.sel").fadeOut(700);
 	});
 	clearTimeout(time);
 	time = setTimeout(function() {
