@@ -73,11 +73,13 @@ body {
 	font-size: 0.12rem;
 	color: #3D3D3D;
 }
-.main-container > div{
+
+.main-container>div {
 	position: absolute;
 	top: 0;
 	left: 0;
 }
+
 .main-intro {
 	width: 100%;
 	height: calc(100% - 0.16rem);
@@ -106,8 +108,10 @@ body {
 	border-radius: 0.08rem;
 	opacity: 0.14;
 	margin-right: 0.1rem;
+	position: relative;
 }
-.tab .item:last-child{
+
+.tab .item:last-child {
 	margin-right: 0;
 }
 
@@ -115,4 +119,41 @@ body {
 	width: 1.71rem;
 	background-color: #be0a13;
 	opacity: 1;
+	padding: 0.12rem 0.14rem;
+}
+
+.tab .item.selected .tab-icon {
+	width: 0.36rem;
+	height: 0.36rem;
+	background-color: #fff;
+	box-shadow: 0rem 0.07rem 0.05rem 0rem rgba(146, 10, 17, 0.56);
+    border-radius: 100%;
+	position: relative;
+}
+
+.tab .item.selected .tab-icon img{
+	position: absolute;
+	width: 0.15rem;
+	top: 0.09rem;
+	left: calc(50% - 0.075rem);
+}
+
+.tab .item.selected .tab-words{
+	position: absolute;
+	right: 0.14rem;
+	top: 0.19rem;
+	width: 0.68rem;
+	text-align: justify;
+	color: #FFFFFF;
+}
+.tab .item.selected .tab-words > div:first-child{
+	font-size: 0.16rem;
+	line-height: 0.16rem;
+	font-weight: bold;
+}
+.tab .item.selected .tab-words > div:last-child{
+	color: rgba(255, 255, 255, 0.73);
+	font-size: 0.08rem;
+	line-height: 0.14rem;
+	font-weight: lighter;
 }
