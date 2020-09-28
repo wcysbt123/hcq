@@ -44,11 +44,26 @@
 									<img src="img/p3.jpg" />
 								</div>
 							</div>
-							<div class="swiper-button-prev swiper-button-white"></div>
-							<div class="swiper-button-next swiper-button-white"></div>
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>
 						</div>
 					</div>
-					<div class="main-plant" style="display: none;">植物</div>
+					<div class="main-plant" style="display: none;">
+						<h1>陰香樹</h1>
+						<div>
+							<p>
+								阴香（学名：Cinnamomum burmanni （Nees et T.Nees）Blume），别名：阴草、胶桂、土肉桂、假桂枝、山桂、月桂等，叶有离基三出脉，但脉腋无腺点，以此与香樟区别。树皮灰褐至黑褐色，有近似肉桂的气味。幼嫩枝梢的气味近似檀香。产亚洲东南部，中国南部有分布。
+							</p>
+							<p>
+								阴香树冠伞形或近圆球形，四季常青，株态优美，清香自然，同时对氯气和二氧化硫均有较强的抗性，为理想的防污绿化园林树种。近年来作为庭荫树、行道树、风景林而遍布城乡。
+
+							</p>
+							<p>
+								果核亦含脂肪，可榨油供工业用。 [1]  叶可作芳香植物原料，亦可入药（味辛，气香，能祛风）。此树也提供木材，常在园林作绿化树、行道树。
+							</p>
+						</div>
+						
+					</div>
 				</div>
 			</div>
 			<div class="tab">
@@ -102,14 +117,10 @@
 					nextEl: '.swiper-button-next',
 					prevEl: '.swiper-button-prev',
 				},
+				observer:true,
+				observeParents:true,
 				
 			});
-			$(".swiper-button-next").on("tap", function(){
-				 mySwiper.slideNext();
-			})
-			$(".swiper-button-prev").on("tap", function(){
-				 mySwiper.slidePrev();
-			})
 		</script>
 	</body>
 </html>
