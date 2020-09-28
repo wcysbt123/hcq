@@ -4,8 +4,9 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="font/iconfont.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<div class="container">
@@ -30,8 +31,18 @@
 							邮政总局大楼内出售精美邮票、明信片，如有兴趣，你可以在自助售票机里买上足够资费的邮票，然后把明信片寄给家人朋友留念，由于只出售整数资费，因此寄往国内需购买3元面值的邮票。
 						</p>
 					</div>
-					<div class="main-pic" style="visibility: hidden;">照片</div>
-					<div class="main-plant" style="visibility: hidden;">植物</div>
+					<div class="main-pic" style="display: none;">
+						<div class="swiper-container">
+						    <div class="swiper-wrapper">
+						        <div class="swiper-slide">Slide 1</div>
+						        <div class="swiper-slide">Slide 2</div>
+						        <div class="swiper-slide">Slide 3</div>
+						    </div>
+						    <div class="swiper-button-prev swiper-button-white"></div>
+						    <div class="swiper-button-next swiper-button-white"></div>
+						</div>
+					</div>
+					<div class="main-plant" style="display: none;">植物</div>
 				</div>
 			</div>
 			<div class="tab">
@@ -77,6 +88,17 @@
 		<script src="js/jquery.color.js"></script>
 		<script src="js/zepto.min.js"></script>
 		<script src="js/touch.js"></script>
+		<script src="js/swiper.min.js"></script>
 		<script src="js/h5.js"></script>
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+			  speed: 2000,
+			  navigation: {
+			      nextEl: '.swiper-button-next',
+			      prevEl: '.swiper-button-prev',
+			    },
+			});
+			  
+		</script>
 	</body>
 </html>

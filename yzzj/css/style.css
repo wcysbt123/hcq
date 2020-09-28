@@ -127,20 +127,23 @@ body {
 	height: 0.36rem;
 	background-color: #eae7e8;
 	box-shadow: none;
-    border-radius: 100%;
+	border-radius: 100%;
 	position: absolute;
 }
-.tab .item .tab-icon.no-sel{
+
+.tab .item .tab-icon.no-sel {
 	background-color: transparent;
 	box-shadow: none;
 }
-.tab .item .tab-icon.sel{
+
+.tab .item .tab-icon.sel {
 	display: none;
 	z-index: 1111111;
 	background-color: #fff;
 	box-shadow: 0rem 0.07rem 0.05rem 0rem rgba(146, 10, 17, 0.56);
 }
-.tab .item .tab-icon i{
+
+.tab .item .tab-icon i {
 	font-size: 0.22rem;
 	width: 100%;
 	text-align: center;
@@ -150,50 +153,94 @@ body {
 	top: 0;
 	left: 0;
 }
-.tab .item .tab-icon.no-sel i{
+
+.tab .item .tab-icon.no-sel i {
 	color: #B7A5A6;
 	opacity: 0.5;
 }
-.tab .item .tab-icon.sel i{
+
+.tab .item .tab-icon.sel i {
 	color: #BE0A13;
 	opacity: 1;
 }
-.tab .item .tab-words{
+
+.tab .item .tab-words {
 	display: none;
 }
-.tab .item.selected .tab-words{
+
+.tab .item.selected .tab-words {
 	position: absolute;
 	right: 0.14rem;
 	top: 0.18rem;
 }
-.tab .item.selected .tab-words div{
+
+.tab .item.selected .tab-words div {
 	width: 0.64rem;
 	text-align: justify;
 }
-.tab .item.selected .tab-words > div:first-child{
+
+.tab .item.selected .tab-words>div:first-child {
 	font-size: 0.16rem;
 	line-height: 0.16rem;
 	height: 0.16rem;
 	font-weight: bold;
 	color: #FFFFFF;
 }
-.tab .item.selected .tab-words > div:last-child{
+
+.tab .item.selected .tab-words>div:last-child {
 	color: rgba(255, 255, 255, 0.73);
 	font-size: 0.08rem;
 	line-height: 0.14rem;
 	height: 0.14rem;
 	font-weight: lighter;
 }
-.justify{
-  width: 120px;
-  text-align: justify;
+
+.justify {
+	width: 120px;
+	text-align: justify;
 }
- 
-.justify:after{
-  content: "";
-  padding-left: 100%;
-  display: inline-block;
+
+.justify:after {
+	content: "";
+	padding-left: 100%;
+	display: inline-block;
 }
+
+.main-container .main-pic {
+	width: 100%;
+	height: 100%;
+}
+
+.main-container .main-pic .swiper-container {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-wrapper {
+	/* 通过改变animation-timing-function 制作弹性切换效果 */
+	transition: 2s cubic-bezier(0.68, -0.4, 0.27, 1.34) 0.2s;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
 /* .item > *{
 	display: none !important;
 } */

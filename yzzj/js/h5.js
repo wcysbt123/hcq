@@ -31,6 +31,10 @@ if (document.body.clientHeight && document.documentElement.clientHeight) {
 }
 $("body").height(clientHeight + "px");
 
+
+
+
+
 var time;
 $(".tab .item").on("tap", function() {
 	var num = $(".tab .item").index(this);
@@ -39,9 +43,8 @@ $(".tab .item").on("tap", function() {
 
 	$(".tab .item").stop();
 	$(".main-container").children().stop();
-	
+
 	$(".tab .item.selected").removeClass("selected");
-	
 	$(this).animate({
 		//width: "1.71rem",
 		backgroundColor: "#be0a13",
@@ -53,25 +56,26 @@ $(".tab .item").on("tap", function() {
 	})
 	$(this).children(".tab-icon.sel").fadeIn(700);
 	$(this).children(".tab-words").fadeIn(700);
-	
+
 	$(this).addClass("selected");
-	
+
+
+	clearTimeout(time);
+	time = setTimeout(function() {
+		$(".main-container").children().fadeOut(500);
+		$(".main-container").children().eq(num).fadeIn(500);
+	}, 200)
+	$(this).addClass("selected");
 	$(".tab .item").not(".selected").each(function() {
 		$(this).animate({
 			//width: "0.6rem",
 			backgroundColor: "#eae7e8",
 		});
 		$(this).children(".tab-icon").children("i").animate({
-			//fontSize: "0.24rem",
 			color: "#B7A5A6",
 			opacity: "0.5"
 		})
 		$(this).children(".tab-words").hide();
 		$(this).children(".tab-icon.sel").fadeOut(700);
 	});
-	clearTimeout(time);
-	time = setTimeout(function() {
-		$(".main-container").children().fadeOut(500);
-		$(".main-container").children().eq(num).fadeIn(500);
-	}, 200)
 })
