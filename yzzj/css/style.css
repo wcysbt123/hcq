@@ -143,8 +143,8 @@ body {
 	right: 0.14rem;
 	top: 0.19rem;
 }
-.tab .item.selected .tab-words > div{
-	width: 0.68rem;
+.tab .item.selected .tab-words div{
+	width: 0.64rem;
 	text-align: justify;
 }
 .tab .item.selected .tab-words > div:first-child{
@@ -158,4 +158,14 @@ body {
 	font-size: 0.08rem;
 	line-height: 0.14rem;
 	font-weight: lighter;
+}
+.justify{
+  width: 120px;
+  text-align: justify;
+}
+ 
+.justify:after{
+  content: "";
+  padding-left: 100%;
+  display: inline-block;
 }
