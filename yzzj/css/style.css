@@ -141,7 +141,7 @@ body {
 .tab .item.selected .tab-words{
 	position: absolute;
 	right: 0.14rem;
-	top: 0.19rem;
+	top: 0.18rem;
 }
 .tab .item.selected .tab-words div{
 	width: 0.64rem;
@@ -150,6 +150,7 @@ body {
 .tab .item.selected .tab-words > div:first-child{
 	font-size: 0.16rem;
 	line-height: 0.16rem;
+	height: 0.16rem;
 	font-weight: bold;
 	color: #FFFFFF;
 }
@@ -157,6 +158,7 @@ body {
 	color: rgba(255, 255, 255, 0.73);
 	font-size: 0.08rem;
 	line-height: 0.14rem;
+	height: 0.14rem;
 	font-weight: lighter;
 }
 .justify{
