@@ -203,11 +203,11 @@ body {
 }
 
 .tab .item.selected .tab-words>div:last-child {
-	color: rgba(205,87,88,0.58);
+	color: rgba(205,87,88,0.8);
 	font-size: 0.08rem;
 	line-height: 0.14rem;
 	height: 0.14rem;
-	font-weight: lighter;
+	font-weight: 200;
 }
 
 .justify {
