@@ -30,8 +30,7 @@ if (document.body.clientHeight && document.documentElement.clientHeight) {
 		document.documentElement.clientHeight;
 }
 $("body").height(clientHeight + "px");
-console.log(clientHeight)
-
+console.log(document.documentElement.clientWidth)
 
 
 
