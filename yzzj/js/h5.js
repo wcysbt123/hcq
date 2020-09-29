@@ -30,6 +30,7 @@ if (document.body.clientHeight && document.documentElement.clientHeight) {
 		document.documentElement.clientHeight;
 }
 $("body").height(clientHeight + "px");
+console.log(clientHeight)
 
 
 
@@ -47,11 +48,11 @@ $(".tab .item").on("tap", function() {
 	$(".tab .item.selected").removeClass("selected");
 	$(this).animate({
 		//width: "1.71rem",
-		backgroundColor: "#be0a13",
+		backgroundColor: "#ffffff",
 		opacity: "1"
 	});
 	$(this).children(".tab-icon").children("i").animate({
-		color: "#BE0A13",
+		color: "#fff",
 		opacity: "1"
 	})
 	$(this).children(".tab-icon.sel").fadeIn(700);
@@ -69,10 +70,10 @@ $(".tab .item").on("tap", function() {
 	$(".tab .item").not(".selected").each(function() {
 		$(this).animate({
 			//width: "0.6rem",
-			backgroundColor: "#eae7e8",
+			backgroundColor: "#F5BDBE",
 		});
 		$(this).children(".tab-icon").children("i").animate({
-			color: "#B7A5A6",
+			color: "#E07979",
 			opacity: "0.5"
 		})
 		$(this).children(".tab-words").hide();
